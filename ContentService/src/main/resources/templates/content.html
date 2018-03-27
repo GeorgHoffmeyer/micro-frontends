@@ -1,0 +1,27 @@
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<link rel="stylesheet" th:href="@{/css/main-content.css}"
+      href="../static/css/main-content.css" />
+<dom-module id="main-content">
+
+    <template>
+        <div class="form-group blu-margin">
+            <h2>Users</h2>
+            <form>
+                <select class="form-control" id="dropDownUser" name="selectedUser">
+                    <option th:each="user : ${UserList}" th:value="${user}" th:text="${user}"></option>
+                </select>
+                <input type="submit" value="Ok"/>
+            </form>
+        </div>
+    </template>
+
+    <script>
+    class MainContent extends Polymer.Element {
+      static get is() { return "main-content"; }
+    }
+    customElements.define(MainContent.is, MainContent);
+  </script>
+
+
+</dom-module>
