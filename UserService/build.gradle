@@ -29,5 +29,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.webjars:bootstrap:3.3.7")
+    compile("org.gho:Models:1.0-SNAPSHOT")
+
     testCompile("junit:junit")
 }

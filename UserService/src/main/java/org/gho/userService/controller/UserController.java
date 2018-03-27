@@ -1,6 +1,5 @@
 package org.gho.userService.controller;
 
-import org.gho.userService.model.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
