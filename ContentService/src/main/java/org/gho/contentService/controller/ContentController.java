@@ -1,5 +1,6 @@
 package org.gho.contentService.controller;
 
+import org.gho.contentService.model.ContentFormResult;
 import org.gho.contentService.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,15 +32,15 @@ public class ContentController {
         users.add(user2);
 
         model.put("UserList", users);
-        model.put("user", user2);
+        model.put("contentFormResult", new ContentFormResult());
 
         return "content";
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
     @CrossOrigin("http://localhost:8080")
-    public RedirectView content(User result) {
-        System.out.println("Result" + result);
+    public RedirectView content(ContentFormResult result) {
+        System.out.println("Result" + result.getUserId());
 
         return new RedirectView("http://localhost:8080");//redirct:http://localhost:8080";
     }
