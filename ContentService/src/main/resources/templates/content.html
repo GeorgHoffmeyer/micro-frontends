@@ -7,9 +7,9 @@
     <template>
         <div class="form-group blu-margin">
             <h2>Users</h2>
-            <form>
-                <select class="form-control" id="dropDownUser" name="selectedUser">
-                    <option th:each="user : ${UserList}" th:value="${user}" th:text="${user}"></option>
+            <form action="http://localhost:8091/" method="POST" th:object="${user}">
+                <select th:field="${user}" class="form-control" id="dropDownUser" name="selectedUser">
+                    <option th:each="user : ${UserList}" th:value="${user}" th:text="${user.name}"></option>
                 </select>
                 <input type="submit" value="Ok"/>
             </form>
