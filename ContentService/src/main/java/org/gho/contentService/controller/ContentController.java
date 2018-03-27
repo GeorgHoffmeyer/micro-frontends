@@ -15,10 +15,8 @@ import java.util.Map;
 @Controller
 public class ContentController {
 
-    @RequestMapping(value="/", method= RequestMethod.GET)
-    @CrossOrigin("http://localhost:8080")
-    public String content(Map<String, Object> model) {
-        List<User> users = new ArrayList<>();
+    private static List<User> users = new ArrayList<>();
+    static {
 
         User user1 = new User();
         user1.setId("1");
@@ -31,6 +29,12 @@ public class ContentController {
         users.add(user1);
         users.add(user2);
 
+    }
+
+    @RequestMapping(value="/", method= RequestMethod.GET)
+    @CrossOrigin("http://localhost:8080")
+    public String content(Map<String, Object> model) {
+
         model.put("UserList", users);
         model.put("contentFormResult", new ContentFormResult());
 
@@ -40,7 +44,14 @@ public class ContentController {
     @RequestMapping(value="/", method=RequestMethod.POST)
     @CrossOrigin("http://localhost:8080")
     public RedirectView content(ContentFormResult result) {
-        System.out.println("Result" + result.getUserId());
+
+        String userId = result.getUserId();
+
+        for(User u : users) {
+            if(u.getId().equals(userId)) {
+                System.out.println("User " + u.getName() + " with id " + userId + " selected.");
+            }
+        }
 
         return new RedirectView("http://localhost:8080");//redirct:http://localhost:8080";
     }
