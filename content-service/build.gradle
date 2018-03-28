@@ -1,13 +1,9 @@
-group 'org.gho'
+group 'org.gho.micro-frontends'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
-    }
+    repositories { mavenCentral() }
+    dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")}
 }
 
 apply plugin: 'java'
@@ -29,5 +25,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.webjars:bootstrap:3.3.7")
+    compile project (":model")
+
+
     testCompile("junit:junit")
 }

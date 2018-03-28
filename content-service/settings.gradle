@@ -1,2 +1,3 @@
-rootProject.name = "ContentService"
+rootProject.name = 'content-service'
 
+includeFlat 'model'
