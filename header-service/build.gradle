@@ -26,7 +26,5 @@ dependencies {
     compile("org.springframework.boot:spring-boot-devtools")
     compile("org.webjars:bootstrap:3.3.7")
 
-    compile project (":model")
-
     testCompile("junit:junit")
 }

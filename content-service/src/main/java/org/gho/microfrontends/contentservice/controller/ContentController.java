@@ -46,10 +46,10 @@ public class ContentController {
     @CrossOrigin("http://localhost:8080")
     public RedirectView content(ContentFormResult result) {
 
-        String userId = result.getUserId();
+        long userId = result.getUserId();
 
         for(User u : users) {
-            if(u.getId().equals(userId)) {
+            if(u.getId() == userId) {
                 System.out.println("User " + u.getName() + " with id " + userId + " selected.");
             }
         }
