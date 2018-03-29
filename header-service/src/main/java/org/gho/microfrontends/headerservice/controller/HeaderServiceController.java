@@ -15,13 +15,6 @@ public class HeaderServiceController {
     @Value("${welcome.message:test}")
     private String message = "Hello World";
 
-    @RequestMapping("/")
-    @CrossOrigin("http://localhost:8080")
-    public String headerWebcomponent(Map<String, Object> model) {
-        model.put("message", this.message);
-        return "header_webcomponent";
-    }
-
     @RequestMapping("/header")
     @CrossOrigin("http://localhost:8080")
     public String header(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
@@ -31,5 +24,13 @@ public class HeaderServiceController {
         return "header";
     }
 
+    @RequestMapping("/footer")
+    @CrossOrigin("http://localhost:8080")
+    public String header(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
+        if("true".equals(webcomponent))
+            return "footer_webcomponent";
+
+        return "footer";
+    }
 
 }

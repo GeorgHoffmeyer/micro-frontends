@@ -1,0 +1,18 @@
+<link rel="import"  href="https://polygit.org/components/polymer/polymer-element.html">
+
+<dom-module id="my-footer">
+
+    <template>
+        <div class="footer">
+            <p>This is the footer</p>
+        </div>
+    </template>
+
+    <script>
+        class MyFooter extends Polymer.Element {
+            static get is() { return "my-footer"; }
+        }
+        customElements.define(MyFooter.is, MyFooter);
+    </script>
+
+</dom-module>
