@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -32,17 +33,20 @@ public class ContentController {
 
     }
 
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value="/content", method= RequestMethod.GET)
     @CrossOrigin("http://localhost:8080")
-    public String content(Map<String, Object> model) {
+    public String content(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
 
         model.put("UserList", users);
         model.put("contentFormResult", new ContentFormResult());
 
+        if("true".equals(webcomponent))
+            return "content_webcomponent";
+
         return "content";
     }
 
-    @RequestMapping(value="/", method=RequestMethod.POST)
+    @RequestMapping(value="/content", method=RequestMethod.POST)
     @CrossOrigin("http://localhost:8080")
     public RedirectView content(ContentFormResult result) {
 

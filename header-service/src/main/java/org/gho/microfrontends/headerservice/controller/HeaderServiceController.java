@@ -26,7 +26,7 @@ public class HeaderServiceController {
 
     @RequestMapping("/footer")
     @CrossOrigin("http://localhost:8080")
-    public String header(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
+    public String footer(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
         if("true".equals(webcomponent))
             return "footer_webcomponent";
 

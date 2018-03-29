@@ -7,13 +7,13 @@
     <title>Test for ESI</title>
 </head>
 <body>
-    <esi:include src="http://localhost:8090/header" />
+    <esi:include src="/header" />
 
     <div>
         <h2>This is the main content</h2>
-        <esi:include src="http://localhost:8091/content" />
+        <esi:include src="http://127.0.0.1:8091/content" />
     </div>
 
-    <esi:include src="http://localhost:8090/footer" />
+    <esi:include src="/footer" />
 </body>
 </html>
