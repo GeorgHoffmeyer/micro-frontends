@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:esi="http://www.edge-delivery.org/esi/1.0"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Test for ESI</title>
 </head>
 <body>
-    <esi:include></esi:include>
+    <esi:include src="http://localhost:8090/header" />
 
     <div>
         <h2>This is the main content</h2>
-        <esi:include></esi:include>
+        <esi:include src="http://localhost:8091/content" />
     </div>
 
-    <esi:include></esi:include>
+    <esi:include src="http://localhost:8090/footer" />
 </body>
 </html>
