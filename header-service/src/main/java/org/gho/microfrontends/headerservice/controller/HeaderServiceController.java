@@ -23,7 +23,10 @@ public class HeaderServiceController {
     }
 
     @RequestMapping("/header")
-    public String headerESI(Map<String, Object> model) {
+    @CrossOrigin("http://localhost:8080")
+    public String header(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, Map<String, Object> model) {
+        if("true".equals(webcomponent))
+            return "header_webcomponent";
 
         return "header";
     }
