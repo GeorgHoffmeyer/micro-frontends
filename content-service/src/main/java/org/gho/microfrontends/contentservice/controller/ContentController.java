@@ -48,7 +48,7 @@ public class ContentController {
 
     @RequestMapping(value="/content", method=RequestMethod.POST)
     @CrossOrigin("http://localhost:8080")
-    public RedirectView content(ContentFormResult result) {
+    public RedirectView content(@RequestParam(name = "webcomponent", defaultValue = "false") String webcomponent, ContentFormResult result) {
 
         long userId = result.getUserId();
 
@@ -58,6 +58,9 @@ public class ContentController {
             }
         }
 
-        return new RedirectView("http://localhost:8080");//redirct:http://localhost:8080";
+        if("true".equals(webcomponent))
+            return new RedirectView("http://localhost:8080");//redirct:http://localhost:8080";
+
+        return new RedirectView("");//redirct:http://localhost:8080";
     }
 }
