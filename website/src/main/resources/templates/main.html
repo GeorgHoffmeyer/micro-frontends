@@ -1,33 +1,17 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Spring Boot Thymeleaf Hello World Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../static/css/main.css" />
-    <script src="https://polygit.org/components/webcomponentsjs/webcomponents-loader.js"></script>
-    <link rel="import" href="http://localhost:8090/">
-    <link rel="import" href="http://localhost:8091/">
-
+    <meta charset="UTF-8">
+    <title>Test for ESI</title>
 </head>
 <body>
+    <esi:include></esi:include>
 
-<nav class="navbar navbar-inverse">
-    <div class="container">
-        <my-header></my-header>
+    <div>
+        <h2>This is the main content</h2>
+        <esi:include></esi:include>
     </div>
-</nav>
 
-<div class="container">
-
-    <div class="starter-template">
-        <h1>Spring Boot Web Thymeleaf Example</h1>
-        <h2>
-            <span th:text="'Message: ' + ${message}"></span>
-        </h2>
-    </div>
-    <main-content></main-content>
-
-</div>
+    <esi:include></esi:include>
 </body>
 </html>
